@@ -1,0 +1,42 @@
+﻿ID: BV_router
+_schema-version: 3.1.0
+version: 1.0.0
+
+modules:
+    -
+        name: router
+        type: nodejs
+        path: ./
+        properties:
+            XS_APP_LOG_LEVEL: debug
+        build-parameters:
+            ignore: [".git/", ".idea/", ".gitignore", ".gitlab-ci.yml", "mta.jar", "mta.yaml"]
+        parameters:
+            disk-quota: 256M
+            memory: 128M
+        requires:
+            - {name: BV_router}
+            - {name: BV_conn}
+            - {name: BV_dest}
+            - {name: BV_uaa}
+            - {name: BV_srv, group: destinations, properties: {name: BV_srv, url: '~{url}', forwardAuthToken: true}}
+resources:
+    -
+        name: BV_srv
+        type: configuration
+        parameters:
+            provider-nid: mta
+            provider-id: 'BV_backend:BV_srv'
+            version: '>=0.0.1'
+    -
+        name: BV_dest
+        type: org.cloudfoundry.existing-service
+    -
+        name: BV_conn
+        type: org.cloudfoundry.existing-service
+    -
+        name: BV_uaa
+        type: org.cloudfoundry.existing-service
+    -
+        name: BV_router
+        type: org.cloudfoundry.existing-service

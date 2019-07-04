@@ -1,0 +1,47 @@
+﻿ID: BV_backend
+_schema-version: 3.1.0
+version: 1.0.0
+
+modules:
+    -
+        name: BV_db
+        type: hdb
+        path: db
+        provides:
+            - {name: BV_db, public: true}
+        parameters:
+            memory: 256M
+            disk-quota: 256M
+        requires:
+            - {name: BV_hdi}
+    -
+        name: BV_srv
+        type: nodejs
+        path: srv
+        properties:
+            XS_APP_LOG_BVEL: debug
+        parameters:
+            memory: 256M
+            disk-quota: 1024M
+        provides:
+            - {name: BV_srv, public: true, properties: {url: '${default-url}'}}
+        requires:
+            - {name: BV_db}
+            - {name: BV_hdi}
+            - {name: BV_uaa}
+            - {name: BV_dest}
+            - {name: BV_conn}
+
+resources:
+    -
+        name: BV_hdi
+        type: org.cloudfoundry.existing-service
+    -
+        name: BV_uaa
+        type: org.cloudfoundry.existing-service
+    -
+        name: BV_dest
+        type: org.cloudfoundry.existing-service
+    -
+        name: BV_conn
+        type: org.cloudfoundry.existing-service      

@@ -1,0 +1,58 @@
+﻿ID: BV_resources
+_schema-version: 3.1.0
+version: 1.0.0
+
+resources:
+#    -   name: lev_portal
+#        parameters:
+#           service-plan: standard
+#           service: portal
+#        type: org.cloudfoundry.managed-service
+    -
+        name: BV_hdi
+        parameters:
+            service-plan: hdi-shared
+            service: hanatrial
+            config: {schema: BV_SCP}
+            shared: true
+        properties:
+            hdi-container-name: '${service-name}'
+        type: com.sap.xs.hdi-container
+    -
+        name: BV_conn
+        type: org.cloudfoundry.managed-service
+        parameters:
+             service: connectivity
+             service-plan: lite
+             shared: true
+    -
+        name: BV_dest
+        type: org.cloudfoundry.managed-service
+        parameters:
+             service: destination
+             service-plan: lite
+             shared: true 
+    -
+        name: BV_uaa
+        parameters:
+            path: ./xs-security.json
+            service-plan: application
+            service: xsuaa
+            shared: true
+        type: org.cloudfoundry.managed-service
+    -
+        name: BV_deployer
+        parameters:
+            service-plan: app-host
+            service: html5-apps-repo
+            config: {sizeLimit: 1}
+            shared: true
+        type: org.cloudfoundry.managed-service
+    -
+        name: BV_router
+        parameters:
+            service-plan: app-runtime
+            service: html5-apps-repo
+            shared: true
+        type: org.cloudfoundry.managed-service
+

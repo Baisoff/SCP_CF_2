@@ -1,0 +1,25 @@
+{
+  "sources": {
+    "D:\\SCP_Course\\HW3\\scp\\backend\\db\\ExtraInfo.cds": "﻿using news from './news';\r\nusing Id from './news';\r\n\r\n\t\tentity Category {\r\n\t\t    key cid : Id;\r\n\t\t    title : String(40);\r\n\t\t    description : String(255);\r\n\t\t};\r\n\r\n\t\tentity Authors {\r\n\t\t    key aid : Id;\r\n\t\t    name : String(40);\r\n\t\t    additional_info : String(100);\r\n\r\n    \t\ttonews : association to many news on tonews.aid = aid;\r\n\t\t};\r\n",
+    "D:\\SCP_Course\\HW3\\scp\\backend\\srv\\NewsExtra.cds": "using news as _news from '../db/news';\r\nusing Category as _Category from '../db/ExtraInfo';\r\nusing Authors as _Authors from '../db/ExtraInfo';\r\n\r\nservice odata {\r\n\r\n  entity news @(\r\n\t\ttitle: 'news',\r\n\t\tCapabilities: {\r\n\t\t\tInsertRestrictions: {Insertable: false},\r\n\t\t\tUpdateRestrictions: {Updatable: false},\r\n\t\t\tDeleteRestrictions: {Deletable: false}\r\n\t\t}\r\n\t) as projection on _news;\r\n\r\n  entity Category @(\r\n\t\ttitle: 'Category',\r\n\t\tCapabilities: {\r\n\t\t\tInsertRestrictions: {Insertable: false},\r\n\t\t\tUpdateRestrictions: {Updatable: false},\r\n\t\t\tDeleteRestrictions: {Deletable: false}\r\n\t\t}\r\n\t) as projection on _Category;\r\n\r\n    entity Authors @(\r\n\t\ttitle: 'Authors',\r\n\t\tCapabilities: {\r\n\t\t\tInsertRestrictions: {Insertable: false},\r\n\t\t\tUpdateRestrictions: {Updatable: false},\r\n\t\t\tDeleteRestrictions: {Deletable: false}\r\n\t\t}\r\n\t) as projection on _Authors;\r\n\r\n}\r\n",
+    "D:\\SCP_Course\\HW3\\scp\\backend\\db\\news.cds": "﻿type Id : String(4);\nusing Category from './ExtraInfo';\nusing Authors from './ExtraInfo';\n\nentity news {\n    key nid : Id;\n    Header : String(40);\n    Content : String(255);\n    aid : Id;\n    cid : Id;\n\n    toCategory : association to many Category on toCategory.cid = cid;\n    toAuthors : association to one Authors on toAuthors.aid = aid;\n};\n"
+  },
+  "dependencies": {
+    "D:\\SCP_Course\\HW3\\scp\\backend\\db\\ExtraInfo.cds": {
+      "./news": "D:\\SCP_Course\\HW3\\scp\\backend\\db\\news.cds"
+    },
+    "D:\\SCP_Course\\HW3\\scp\\backend\\db\\news.cds": {
+      "./ExtraInfo": "D:\\SCP_Course\\HW3\\scp\\backend\\db\\ExtraInfo.cds"
+    },
+    "D:\\SCP_Course\\HW3\\scp\\backend\\srv\\NewsExtra.cds": {
+      "../db/news": "D:\\SCP_Course\\HW3\\scp\\backend\\db\\news.cds",
+      "../db/ExtraInfo": "D:\\SCP_Course\\HW3\\scp\\backend\\db\\ExtraInfo.cds"
+    }
+  },
+  "files": [
+    "D:\\SCP_Course\\HW3\\scp\\backend\\db\\ExtraInfo.cds",
+    "D:\\SCP_Course\\HW3\\scp\\backend\\db\\news.cds",
+    "D:\\SCP_Course\\HW3\\scp\\backend\\srv\\NewsExtra.cds"
+  ],
+  "srv": "D:\\SCP_Course\\HW3\\scp\\backend\\srv"
+}

@@ -1,0 +1,112 @@
+Getting env variables for app BV_srv in org C5280324trial_trial / space dev as vadzim.baisau@sap.com...
+OK
+
+System-Provided:
+{
+ "VCAP_SERVICES": {
+  "hanatrial": [
+   {
+    "binding_name": null,
+    "credentials": {
+     "driver": "com.sap.db.jdbc.Driver",
+     "hdi_password": "Lw11J78ASc.jWWKe7bymQvnDnKhbGo_jdaRYBrioktrSiLnCMTvBJuRtXY6rTHIUxq7QpChB6oazA8lFFX8Y4pv2s6VrMK75cr-BAeYelNoHa45DOK-rA.tKwthfwMUQ",
+     "hdi_user": "SBSS_26344058449030048151908150083400124916095328692404378193564345212",
+     "host": "10.253.93.93",
+     "password": "Tq9f7n4AdT9ZKBRoNSGLYFssvUU5DfVVpuGdWVpw4INrnXY9z84EfBh8XzYufdjGcV-B_eo2LXX-iO53tBUKt7OJx7Hz.wwevAhSDpDXR-J4NgB4y8RJ6pSS40YXyLbZ",
+     "port": "30041",
+     "schema": "BV_SCP",
+     "url": "jdbc:sap://10.253.93.93:30041/?currentschema=BV_SCP",
+     "user": "SBSS_25710224819450395575394833843973679217139422387402483872662495547"
+    },
+    "instance_name": "BV_hdi",
+    "label": "hanatrial",
+    "name": "BV_hdi",
+    "plan": "hdi-shared",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": [
+     "hana",
+     "database",
+     "relational"
+    ],
+    "volume_mounts": []
+   }
+  ],
+  "xsuaa": [
+   {
+    "binding_name": null,
+    "credentials": {
+     "apiurl": "https://api.authentication.eu10.hana.ondemand.com",
+     "clientid": "sb-HiMTA!t15233",
+     "clientsecret": "W2UApPjiHzPyXMiy0RHfrDFMu04=",
+     "identityzone": "c5280324trial",
+     "identityzoneid": "ef069bd1-62d5-41c3-9791-e024dc03c95c",
+     "sburl": "https://internal-xsuaa.authentication.eu10.hana.ondemand.com",
+     "tenantid": "ef069bd1-62d5-41c3-9791-e024dc03c95c",
+     "tenantmode": "dedicated",
+     "uaadomain": "authentication.eu10.hana.ondemand.com",
+     "url": "https://c5280324trial.authentication.eu10.hana.ondemand.com",
+     "verificationkey": "-----BEGIN PUBLIC KEY-----MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAwThn6OO9kj0bchkOGkqYBnV1dQ3zU/xtj7Kj7nDd8nyRMcEWCtVzrzjzhiisRhlrzlRIEY82wRAZNGKMnw7cvCwNixcfcDJnjzgr2pJ+5/yDZUc0IXXyIWPZD+XdL+0EogC3d4+fqyvg/BF/F0t2hKHWr/UTXE6zrGhBKaL0d8rKfYd6olGWigFd+3+24CKI14zWVxUBtC+P9Fhngc9DRzkXqhxOK/EKn0HzSgotf5duq6Tmk9DCNM4sLW4+ERc6xzrgbeEexakabvax/Az9WZ4qhwgw+fwIhKIC7WLwCEJaRsW4m7NKkv+eJR2LKYesuQ9SVAJ3EXV86RwdnH4uAv7lQHsKURPVAQBlranSqyQu0EXs2N9OlWTxe+FyNkIvyZvoLrZl/CdlYc8AKxRm5rn2/88nkrYQ0XZSrnICM5FRWgVF2hn5KfZGwtBN85/D4Yck6B3ocMfyX7e4URUm9lRPQFUJGTXaZnEIge0R159HUwhTN1HvyXrs6uT1ZZmW+c3p47dw1+LmUf/hIf8zd+uvHQjIeHEJqxjqfyA8yqAFKRHKVFrwnwdMHIsRap2EKBhHMfeVf0P2th5C9MggYoGCvdIaIUgMBX3TtCdvGrcWML7hnyS2zkrlA8SoKJnRcRF2KxWKs355FhpHpzqyZflO5l98+O8wOsFjGpL9d0ECAwEAAQ==-----END PUBLIC KEY-----",
+     "xsappname": "HiMTA!t15233"
+    },
+    "instance_name": "BV_uaa",
+    "label": "xsuaa",
+    "name": "BV_uaa",
+    "plan": "application",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": [
+     "xsuaa"
+    ],
+    "volume_mounts": []
+   }
+  ]
+ }
+}
+
+{
+ "VCAP_APPLICATION": {
+  "application_id": "08ebe862-1803-4e1b-bb85-b3bcb7ac64f4",
+  "application_name": "BV_srv",
+  "application_uris": [
+   "c5280324trial-trial-dev-bv-srv.cfapps.eu10.hana.ondemand.com"
+  ],
+  "application_version": "b448fe8b-3c56-475d-a3b4-b5503cbe2edc",
+  "cf_api": "https://api.cf.eu10.hana.ondemand.com",
+  "limits": {
+   "disk": 1024,
+   "fds": 16384,
+   "mem": 256
+  },
+  "name": "BV_srv",
+  "space_id": "3f86bb95-dca0-49d3-a63d-491164a3700e",
+  "space_name": "dev",
+  "uris": [
+   "c5280324trial-trial-dev-bv-srv.cfapps.eu10.hana.ondemand.com"
+  ],
+  "users": null,
+  "version": "b448fe8b-3c56-475d-a3b4-b5503cbe2edc"
+ }
+}
+
+User-Provided:
+DEPLOY_ATTRIBUTES: {
+  "app-content-digest" : "9FB29457EB0A273431B6A49C815FAA13"
+}
+MTA_METADATA: {
+  "id" : "BV_backend",
+  "version" : "1.0.0"
+}
+MTA_MODULE_METADATA: {
+  "name" : "BV_srv"
+}
+MTA_MODULE_PROVIDED_DEPENDENCIES: [ "BV_srv" ]
+MTA_SERVICES: [ ]
+XS_APP_LOG_BVEL: debug
+
+Running Environment Variable Groups:
+CREDHUB_API: https://credhub.service.cf.internal
+
+Staging Environment Variable Groups:
+npm_config_@sap:registry: https://npm.sap.com
+

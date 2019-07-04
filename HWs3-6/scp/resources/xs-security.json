@@ -1,0 +1,56 @@
+{
+  "xsappname": "HiMTA",
+  "tenant-mode": "dedicated",
+  "description": "Security profile of called application",
+  "scopes": [
+
+
+    {
+      "name": "uaa.news",
+      "description": "UAA"
+    },
+    {
+      "name": "$XSAPPNAME.himta.view",
+      "description": "Display News"
+    },
+    {
+      "name": "$XSAPPNAME.himta.create",
+      "description": "Create News"
+    }
+  ],
+  "attributes": [
+    {
+      "name": "client",
+      "description": "Session Client",
+      "valueType": "int"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Token_Exchange",
+      "description": "UAA",
+      "scope-references": [
+        "uaa.news"
+      ]
+    },
+    {
+      "name": "GodBatyshka",
+      "description": "Can do anything",
+      "scope-references": [
+        "$XSAPPNAME.himta.view",
+        "$XSAPPNAME.himta.create"
+      ],
+      "attribute-references": [
+      ]
+    },
+    {
+      "name": "Simplenews",
+      "description": "Display mode only",
+      "scope-references": [
+        "$XSAPPNAME.himta.view"
+      ],
+      "attribute-references": [
+      ]
+    }
+]
+}
