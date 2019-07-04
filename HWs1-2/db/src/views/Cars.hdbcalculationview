@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="HiMTA_Baisau.views::Cars" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="HOURLY" enforceSqlExecution="false">
+
+<descriptions defaultDescription="Cars"/>
+
+<localVariables/>
+
+<variableMappings/>
+
+<dataSources>
+
+  <DataSource id="HiMTA_Baisau.tables::ExtraInfo.Cars">
+
+    <resourceUri>HiMTA_Baisau.tables::ExtraInfo.Cars</resourceUri>
+
+  </DataSource>
+
+</dataSources>
+
+<calculationViews>
+
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_v" filterExpressionLanguage="COLUMN_ENGINE">
+
+    <viewAttributes>
+
+      <viewAttribute id="usid"/>
+
+      <viewAttribute id="name"/>
+
+
+      <viewAttribute id="crid"/>
+
+    </viewAttributes>
+
+    <calculatedViewAttributes/>
+
+    <input node="HiMTA_Baisau.tables::ExtraInfo.Cars"/>
+
+    <filter>&quot;name&quot;='LadaKalina'</filter>
+
+  </calculationView>
+
+</calculationViews>
+
+<logicalModel id="Projection_v">
+
+  <attributes>
+
+    <attribute id="name" order="1" displayAttribute="false" attributeHierarchyActive="false">
+
+      <descriptions defaultDescription="name"/>
+
+      <keyMapping columnObjectName="Projection_v" columnName="name"/>
+
+    </attribute>
+
+    <attribute id="usid" order="2" displayAttribute="false" attributeHierarchyActive="false">
+
+      <descriptions defaultDescription="usid"/>
+
+      <keyMapping columnObjectName="Projection_v" columnName="usid"/>
+
+    </attribute>
+
+  </attributes>
+
+  <calculatedAttributes/>
+
+  <baseMeasures/>
+
+  <calculatedMeasures/>
+
+  <restrictedMeasures/>
+
+</logicalModel>
+
+<layout>
+
+  <shapes>
+
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+
+      <upperLeftCorner x="100" y="105"/>
+
+    
+
+      <rectangleSize width="160"/>
+
+    </shape>
+
+  
+
+    <shape expanded="true" modelObjectName="Projection_v" modelObjectNameSpace="CalculationView">
+
+      <upperLeftCorner x="100" y="219"/>
+
+      <rectangleSize height="30" width="160"/>
+
+    </shape>
+
+  </shapes>
+
+</layout>
+
+</Calculation:scenario>

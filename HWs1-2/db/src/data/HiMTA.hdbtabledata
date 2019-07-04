@@ -1,0 +1,50 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "HiMTA_Baisau::User",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "HiMTA_Baisau::Users.csv",
+        "has_header": true
+      },
+      "import_settings": {
+        "import_columns": [
+          "usid",
+          "name"
+        ]
+      }
+    },
+    {
+      "target_table": "HiMTA_Baisau::ExtraInfo.Address",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "HiMTA_Baisau::Address.csv",
+        "has_header": true
+      },
+      "import_settings": {
+        "import_columns": [
+					"usid",
+					"city",
+					"strt",
+					"hnum"
+        ]
+      }
+    },
+    {
+      "target_table": "HiMTA_Baisau::ExtraInfo.Cars",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "HiMTA_Baisau::Cars.csv",
+        "has_header": true
+      },
+      "import_settings": {
+        "import_columns": [
+					"crid",
+          "usid",
+          "name"
+        ]
+      }
+    }
+  ]
+}
